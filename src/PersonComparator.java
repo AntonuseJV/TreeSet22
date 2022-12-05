@@ -2,10 +2,10 @@ import java.util.Comparator;
 
 public class PersonComparator implements Comparator<Person> {
 
-    public static int maxNumberWords;
+    int maxNumberWords;
 
     public PersonComparator(int maxNumberWords) {
-        PersonComparator.maxNumberWords = maxNumberWords;
+        this.maxNumberWords = maxNumberWords;
     }
 
     @Override
