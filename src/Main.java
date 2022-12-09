@@ -22,6 +22,7 @@ public class Main {
         }
         System.out.println();
 
+        
         System.out.println("Сортировка лямбдой:");
         Comparator <Person> artComp = (o1, o2) ->{
             if (o1.numberWords() <= 3 && o2.numberWords() <= 3) {
