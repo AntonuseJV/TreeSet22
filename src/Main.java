@@ -17,14 +17,30 @@ public class Main {
 
 
         System.out.println("Несортированный список:");
-        for (Person artPerson : artPeople) {
-            System.out.println(artPerson);
+        for (Person P : artPeople) {
+            System.out.println(P);
         }
         System.out.println();
-        System.out.println("Сортировка компоратором:");
-        Collections.sort(artPeople, new PersonComparator(3));
-        for (Person artPerson : artPeople) {
-            System.out.println(artPerson);
+
+        System.out.println("Сортировка лямбдой:");
+        Comparator <Person> artComp = (o1, o2) ->{
+            if (o1.numberWords() <= 3 && o2.numberWords() <= 3) {
+                if (o1.numberWords() < o2.numberWords()) {
+                    return 1;
+                } else if (o1.numberWords() > o2.numberWords()) {
+                    return -1;
+                } else {
+                    return Integer.compare(o2.getAge(), o1.getAge());
+                }
+            } else {
+                return Integer.compare(o2.getAge(), o1.getAge());
+            }
+        };
+        artPeople.sort(artComp);
+        for (Person P : artPeople) {
+            System.out.println(P);
         }
+    }
+}
     }
 }
