@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -22,7 +20,6 @@ public class Main {
         }
         System.out.println();
 
-        
         System.out.println("Сортировка лямбдой:");
         Comparator <Person> artComp = (o1, o2) ->{
             if (o1.numberWords() <= 3 && o2.numberWords() <= 3) {
@@ -41,7 +38,5 @@ public class Main {
         for (Person P : artPeople) {
             System.out.println(P);
         }
-    }
-}
     }
 }
