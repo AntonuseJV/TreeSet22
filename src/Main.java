@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Main {
 
@@ -14,6 +14,9 @@ public class Main {
         artPeople.add(new Person("Михаил", "Лермонтов", 26));
         artPeople.add(new Person("Николай", "Гоголь", 42));
         artPeople.add(new Person("Иван", "Тургенев", 64));
+        artPeople.add(new Person("Вася", "Иванов", 8));
+        artPeople.add(new Person("Саша", "Петров", 10));
+        artPeople.add(new Person("Мария", "Степанова", 8));
 
 
         System.out.println("Несортированный список:");
@@ -22,25 +25,12 @@ public class Main {
         }
         System.out.println();
 
-        System.out.println("Сортировка лямбдой:");
-        Comparator <Person> artComp = (o1, o2) ->{
-            if (o1.numberWords() <= 3 && o2.numberWords() <= 3) {
-                if (o1.numberWords() < o2.numberWords()) {
-                    return 1;
-                } else if (o1.numberWords() > o2.numberWords()) {
-                    return -1;
-                } else {
-                    return Integer.compare(o2.getAge(), o1.getAge());
-                }
-            } else {
-                return Integer.compare(o2.getAge(), o1.getAge());
-            }
-        };
-        artPeople.sort(artComp);
+
+        System.out.println("Совершеннолетние:");
+        Predicate<Person> predicate = person -> person.getAge() < 18;
+        artPeople.removeIf(predicate);
         for (Person P : artPeople) {
             System.out.println(P);
         }
-    }
-}
     }
 }
