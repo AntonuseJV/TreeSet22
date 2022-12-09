@@ -2,7 +2,7 @@ import java.util.Comparator;
 
 public class PersonComparator implements Comparator<Person> {
 
-    int maxNumberWords;
+    protected int maxNumberWords;
 
     public PersonComparator(int maxNumberWords) {
         this.maxNumberWords = maxNumberWords;
